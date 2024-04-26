@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: react-express-app-dev-nginx
+    ports:
+      - 4000:80
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    restart: always

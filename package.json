@@ -1,0 +1,23 @@
+{
+  "name": "react-express-app",
+  "version": "0.1.0",
+  "description": "Root package.json for a React/Express app",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"bash ./dev/run.sh\" \"npm run start:api:dev\" \"npm run start:ui\" \"open http://localhost:4000\"",
+    "start:api": "npm start --workspace=api",
+    "start:api:dev": "npm run start:dev --workspace=api",
+    "start:ui": "BROWSER=none npm start --workspace=ui",
+    "start:nginx": "nginx -g \"daemon off;\"",
+    "start:indocker": "concurrently \"npm run start:nginx\" \"npm run start:api\" \"npm run start:ui\""
+  },
+  "workspaces": {
+    "packages": [
+      "api",
+      "ui"
+    ]
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

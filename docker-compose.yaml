@@ -1,0 +1,9 @@
+version: '3.6'
+
+services:
+  react-express-app:
+    build:
+      context: ./
+    container_name: 'react-express-app'
+    ports:
+      - 3000:80
